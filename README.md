@@ -87,9 +87,14 @@ docker-compose up -d
 
 ### Option 1: Automatic Import
 
-Place your `.sql` files in `docker/init-db/`. They will be automatically imported on first container creation.
+To automatically import a database schema when the container starts:
 
-To re-import:
+1. Place your `.sql` file(s) in the `docker/init-db/` folder
+2. Start the containers: `docker-compose up -d`
+
+The SQL files will be executed automatically on first container creation. If you have multiple files, they run in alphabetical order (e.g., `01-schema.sql`, `02-data.sql`).
+
+To re-import the schema, remove the database volume and restart:
 ```bash
 docker-compose down -v
 docker-compose up -d

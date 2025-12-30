@@ -11,7 +11,7 @@ $cfg['QueryHistoryMax'] = 100;
 
 $cfg['Servers'][1]['pmadb'] = 'phpmyadmin';
 $cfg['Servers'][1]['controlhost'] = 'db';
-$cfg['Servers'][1]['controluser'] = 'root';
+$cfg['Servers'][1]['controluser'] = 'root'; 
 $cfg['Servers'][1]['controlpass'] = 'secret';
 
 // Table names for advanced features
