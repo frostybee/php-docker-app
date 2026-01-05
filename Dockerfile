@@ -10,13 +10,16 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Install PHP extensions
-RUN docker-php-ext-install pdo pdo_mysql curl mbstring intl zip gd
+RUN docker-php-ext-install pdo pdo_mysql curl mbstring intl zip gd 
 
 # Enable Apache mod_rewrite for .htaccess
 RUN a2enmod rewrite
 
 # Copy custom Apache virtual host config
 COPY docker/apache.conf /etc/apache2/sites-available/000-default.conf
+
+# Copy custom PHP configuration
+COPY docker/php.ini /usr/local/etc/php/conf.d/custom.ini
 
 # Copy application files
 COPY . /var/www/html/
